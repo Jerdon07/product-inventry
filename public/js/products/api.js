@@ -1,5 +1,5 @@
-async function request(uri) {
-    const response = await fetch (uri)
+async function request(url, options = {}) {
+    const response = await fetch (url, options)
 
     const result = await response.json()
 
@@ -10,3 +10,7 @@ async function request(uri) {
 }
 
 export const getProducts = () => request('/api/products')
+
+export const createProduct = (formData) => request(
+    '/api/products/create', { method: 'POST', body: formData }
+)

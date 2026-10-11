@@ -1,13 +1,13 @@
-import { getProducts } from "./api.js";
-import { renderProducts } from "./render.js";
+import { createProduct, getProducts } from "./api.js"
+import { addProductToList, clearErrors, renderProducts, showErrors } from "./render.js"
 
-const productList = document.getElementById('productList');
-const dialog = document.getElementById('productDialog');
-const openBtn = document.getElementById('openDialogBtn');
-const closeBtn = document.getElementById('closeDialogBtn');
-const form = document.getElementById('productForm');
+/* Instantiate Elements */
+const dialog = document.getElementById('productDialog')
+const openBtn = document.getElementById('openDialogBtn')
+const closeBtn = document.getElementById('closeDialogBtn')
+const form = document.getElementById('productForm')
 
-/* Fetch Product Request */
+// GET all products -------------------------------------
 async function loadProducts() {
     try {
         const { ok, result } = await getProducts()
@@ -25,93 +25,34 @@ async function loadProducts() {
 
 loadProducts()
 
-/* Create Product Request */
+// POST a product ---------------------------------------
 
-/* Dialog */
-openBtn.addEventListener('click', () => dialog.showModal());
-closeBtn.addEventListener('click', () => dialog.close());
+/* Instantiate Event Listeners */
+openBtn.addEventListener('click', () => dialog.showModal())
+closeBtn.addEventListener('click', () => dialog.close())
 
 dialog.addEventListener('close', () => {
-    form.reset();
-    clearErrors();
-});
+    form.reset()
+    clearErrors()
+})
 
-/* Form Submit */
+/* Form Submission */
 form.addEventListener('submit', async (event) => {
-    event.preventDefault(); // stop the page reload
-    clearErrors();
+    event.preventDefault()
+    clearErrors()
 
     try {
-        const response = await fetch(form.action, {
-            method: form.method,
-            body: new FormData(form),
-        });
-        const result = await response.json();
+        const { ok, result } = await createProduct(new FormData(form))
 
-        if (!response.ok) {
-            showErrors(result.errors);
-            return;
+        if (!ok) {
+            showErrors(result.errors)
+            return
         }
 
-        addProductToList(result.product);
-        dialog.close(); // the 'close' listener resets the form
+        addProductToList(result.product)
+        dialog.close() // the 'close' listener resets the form
     } catch (error) {
-        console.error('Submission failed:', error);
-        showErrors({ form: 'Something went wrong. Please try again.' });
+        console.error('Submission failed:', error)
+        showErrors({ form: 'Something went wrong. Please try again.' })
     }
-});
-
-/**
- * Append the created item to the list
- * @param {name, price, quantity} product 
- */
-function addProductToList(product) {
-
-    /* Link Element */
-    const tableRow = document.createElement('tr'); // Instantiate element
-    tableRow.append(
-        createCell(product.name),
-        createCell(product.price),
-        createCell(product.quantity),
-    )
-
-    const deleteCell = document.createElement('td')
-    const deleteButton = document.createElement('button')
-
-    deleteButton.type = 'button'
-    deleteButton.textContent = 'Delete'
-    deleteButton.dataset.id = product.id
-    deleteCell.append(deleteButton)
-
-    tableRow.append(deleteCell)
-    productList.append(tableRow)
-}
-
-function createCell(text) {
-    const cell = document.createElement('td')
-    cell.textContent = text
-    return cell
-}
-
-/**
- * Display the error to the user
- */
-function showErrors(errors = {}) {
-    for (const [field, message] of Object.entries(errors)) {
-        const errorElement = document.getElementById(`error-${field}`);
-        if (errorElement) {
-            errorElement.textContent = message;
-            errorElement.classList.remove('hidden');
-        }
-    }
-}
-
-/**
- * Remove all errors
- */
-function clearErrors() {
-    document.querySelectorAll('[id^="error-"]').forEach((el) => {
-        el.textContent = '';
-        el.classList.add('hidden');
-    });
-}
+})
