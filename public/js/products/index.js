@@ -1,10 +1,33 @@
+import { getProducts } from "./api.js";
+import { renderProducts } from "./render.js";
+
+const productList = document.getElementById('productList');
 const dialog = document.getElementById('productDialog');
 const openBtn = document.getElementById('openDialogBtn');
 const closeBtn = document.getElementById('closeDialogBtn');
 const form = document.getElementById('productForm');
-const productList = document.getElementById('productList');
 
-// ---------- Dialog ----------
+/* Fetch Product Request */
+async function loadProducts() {
+    try {
+        const { ok, result } = await getProducts()
+
+        if (!ok) {
+            console.error(result.errors)
+            return
+        }
+
+        renderProducts(result.products)
+    } catch (error) {
+        console.error('Could not load products:', error)
+    }
+}
+
+loadProducts()
+
+/* Create Product Request */
+
+/* Dialog */
 openBtn.addEventListener('click', () => dialog.showModal());
 closeBtn.addEventListener('click', () => dialog.close());
 
@@ -13,7 +36,7 @@ dialog.addEventListener('close', () => {
     clearErrors();
 });
 
-// ---------- Form submit ----------
+/* Form Submit */
 form.addEventListener('submit', async (event) => {
     event.preventDefault(); // stop the page reload
     clearErrors();
@@ -45,14 +68,29 @@ form.addEventListener('submit', async (event) => {
 function addProductToList(product) {
 
     /* Link Element */
-    const link = document.createElement('a'); // Instantiate the <a> element
-    link.href = `product?id=${encodeURIComponent(product.id)}`; // Add href attribute to the element
-    link.className = 'hover:underline'; // Add className to the element
-    link.textContent = product.name; // Add name value to the element
+    const tableRow = document.createElement('tr'); // Instantiate element
+    tableRow.append(
+        createCell(product.name),
+        createCell(product.price),
+        createCell(product.quantity),
+    )
 
-    const item = document.createElement('li'); // Instantiate list item
-    item.append(link); // Add the link the the item
-    productList.append(item); // Add the item to the product list
+    const deleteCell = document.createElement('td')
+    const deleteButton = document.createElement('button')
+
+    deleteButton.type = 'button'
+    deleteButton.textContent = 'Delete'
+    deleteButton.dataset.id = product.id
+    deleteCell.append(deleteButton)
+
+    tableRow.append(deleteCell)
+    productList.append(tableRow)
+}
+
+function createCell(text) {
+    const cell = document.createElement('td')
+    cell.textContent = text
+    return cell
 }
 
 /**
