@@ -69,3 +69,17 @@ function redirect(string $path)
 
     exit();
 }
+
+/**
+ * API response data in JSON format
+ */
+function json_response(array $data, int $status = 200): never
+{
+    http_response_code($status);
+
+    header('Content-Type: application/json');
+
+    echo json_encode($data);
+
+    exit();
+}
