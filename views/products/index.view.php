@@ -15,19 +15,24 @@
         </div>
 
         <!-- Display List -->
-        <ul id="productList" class="mt-4 space-y-2">
-            <?php foreach ($products as $product) : ?>
-                <li>
-                    <a href="product?id=<?= $product['id'] ?>" class="hover:underline">
-                        <?= htmlspecialchars($product['name']) ?>
-                    </a>
-                </li>
-            <?php endforeach ?>
-        </ul>
+         <table>
+            <caption>Product Records</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <!-- Products List fetched by JavaScript -->
+            <tbody id="productList"></tbody>
+         </table>
     </div>
 </main>
 
-<!-- Modal Dialog -->
+<!-- Product Create Dialog -->
 <dialog id="productDialog" class="fixed inset-0 h-fit m-auto p-6 rounded-lg shadow-xl backdrop:bg-black/50">
     <h2 class="text-xl font-bold">Add Product</h2>
     <p class="text-sm text-gray-600 mb-4">Fill out the form to create a new product</p>
