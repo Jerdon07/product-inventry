@@ -26,5 +26,5 @@ $router->put('/product/edit', 'products/update-controller.php')->only('auth');
 $router->delete('/product', 'products/destroy-controller.php')->only('auth');
 
 /* Product API */
-$router->get('/api/products', 'api/products/api-products-controller.php')->only('auth');
+$router->get('/api/products', 'api/products/index-controller.php')->only('auth');
 $router->post('/api/products/create', 'api/products/store-controller.php')->only('auth');
