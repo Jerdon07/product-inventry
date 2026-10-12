@@ -18,4 +18,5 @@ $db->query(
     [":id" => $_POST['id']],
 );
 
-redirect('/products');
+/* Sets the response as a JSON */
+json_response(['status' => 'success']);

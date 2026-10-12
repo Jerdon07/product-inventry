@@ -20,8 +20,8 @@ $router->get('/products', 'products/index-controller.php')->only('auth');
 $router->get('/product', 'products/show-controller.php')->only('auth');
 $router->get('/product/edit', 'products/edit-controller.php')->only('auth');
 $router->put('/product/edit', 'products/update-controller.php')->only('auth');
-$router->delete('/product', 'products/destroy-controller.php')->only('auth');
 
 /* Product API */
 $router->get('/api/products', 'api/products/index-controller.php')->only('auth');
 $router->post('/api/products/create', 'api/products/store-controller.php')->only('auth');
+$router->delete('/api/product', 'api/products/destroy-controller.php')->only('auth');
