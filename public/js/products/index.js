@@ -1,7 +1,8 @@
-import { createProduct, getProducts } from "./api.js"
+import { createProduct, deleteProduct, getProducts } from "./api.js"
 import { addProductToList, clearErrors, renderProducts, showErrors } from "./render.js"
 
 /* Instantiate Elements */
+const productList = document.getElementById('productList')
 const dialog = document.getElementById('productDialog')
 const openBtn = document.getElementById('openDialogBtn')
 const closeBtn = document.getElementById('closeDialogBtn')
@@ -24,6 +25,27 @@ async function loadProducts() {
 }
 
 loadProducts()
+
+// DELETE a product -------------------------------------
+productList.addEventListener('click', async (event) => {
+    const button = event.target.closest('button[data-id]')
+
+    if (!button) return
+    if (!confirm('Delete this product?')) return
+
+    try {
+        const { ok, result } = await deleteProduct(button.dataset.id)
+
+        if (!ok) {
+            console.error('Could not delete product:', result.errors ?? result)
+            return
+        }
+
+        button.closest('tr')?.remove()
+    } catch (error) {
+        console.error('Could not delete product:', error)
+    }
+})
 
 // POST a product ---------------------------------------
 
