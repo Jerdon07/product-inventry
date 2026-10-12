@@ -2,4 +2,56 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: oklch(60.6% 0.25 292.717);
+    padding-inline: 3rem;
+    padding-block: 12px;
+}
+
+nav h3 {
+    font-weight: bold;
+    color: white;
+    font-size: larger;
+}
+
+nav .right {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+nav .right .pages {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2.5rem;
+}
+
+nav .right .auth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a, 
+nav button {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: oklch(60.6% 0.25 292.717);
+    color: oklch(89.4% 0.057 293.283);
+    border-radius: 6px;
+    font-size: small;
+    font-weight: 600;
+}
+
+nav a:hover, 
+nav button:hover {
+    background-color: oklch(54.1% 0.281 293.009);
+    color: white;
+}
+
+nav .right .active {
+    background-color: oklch(49.1% 0.27 292.581);
+    color: white;
+    font-size: small;
+    font-size: small;
 }

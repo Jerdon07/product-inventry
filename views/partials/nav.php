@@ -1,79 +1,56 @@
-<nav class="bg-purple-700">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="flex h-16 items-center justify-between">
-                    <!-- Right (Logo Area) -->
-                    <div>
-                        <h3 class="font-bold">Product App</h3>
-                    </div>
+<nav>
+    <!-- Left (Logo Area) -->
+    <div>
+        <h3>Product Inventry</h3>
+    </div>
 
-                    <!-- Left -->
-                    <div class="flex items-baseline justify-between space-x-10">
-                        <!-- Navigation -->
-                        <div class="flex justify-between items-center space-x-4">
-                            <a
-                                href="/"
-                                class="
-                                    <?= urlIs('/') 
-                                        ? 'bg-purple-900 text-white' 
-                                        : 'bg-purple-700 text-purple-200 hover:bg-purple-700 hover-text-white' ?>
-                                    px-3 py-2 rounded-md text-sm font-medium"
+    <!-- Right -->
+    <div class="right">
+        <!-- Navigation -->
+        <div class="pages">
+            <a href="/" class="<?= urlIs('/') ? 'active' : '' ?>">
+                Home
+            </a>
 
-                            >
-                                Home
-                            </a>
+            <?php if(isset($_SESSION['user'])) : ?>
+                <a 
+                    href="/products" 
+                    class="
+                        <?= urlIs('/products') ? 'active' : '' ?>"
+                >
+                    Products
+                </a>
+            <?php endif ?>
+        </div>
 
-                            <?php if(isset($_SESSION['user'])) : ?>
-                                <a 
-                                    href="/products" 
-                                    class="
-                                        <?= urlIs('/products')
-                                            ? 'bg-purple-900 text-white' 
-                                            : 'bg-purple-700 text-purple-200 hover:bg-purple-700 hover-text-white' ?>
-                                        px-3 py-2 rounded-md text-sm font-medium"
-                                >
-                                    Products
-                                </a>
-                            <?php endif ?>
-                        </div>
+        <!-- Auth -->
+        <?php if (isset($_SESSION['user'])) : ?>
+            <form action="/sessions" method="POST" class="auth">
+                <input type="hidden" name="_method" value="DELETE">
 
-                        <!-- Auth -->
-                         <?php if ($_SESSION['user'] ?? false) : ?>
-                            <form action="/sessions" method="POST">
-                                <input type="hidden" name="_method" value="DELETE">
+                <button
+                    type="submit"
+                    class="bg-purple-700 text-purple-200 hover:bg-purple-700 hover-text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
+                >
+                    Log Out
+                </button>
+            </form>
+        <?php else : ?>
+            <div class="auth">
+                <a 
+                    href="/login"
+                    class="<?= urlIs('/login') ? 'active' : '' ?>"
+                >
+                    Login
+                </a>
 
-                                <button
-                                    type="submit"
-                                    class="bg-purple-700 text-purple-200 hover:bg-purple-700 hover-text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
-                                >
-                                    Log Out
-                                </button>
-                            </form>
-                        <?php else : ?>
-                            <div class="flex justify-between items-center space-x-4">
-                                <a 
-                                    href="/login"
-                                    class="
-                                        <?= urlIs('/login')
-                                            ? 'bg-purple-900 text-white' 
-                                            : 'bg-purple-700 text-purple-200 hover:bg-purple-700 hover-text-white' ?>
-                                        px-3 py-2 rounded-md text-sm font-medium"
-                                >
-                                    Login
-                                </a>
-
-                                <a 
-                                    href="/register"
-                                    class="
-                                        <?= urlIs('/register')
-                                            ? 'bg-purple-900 text-white' 
-                                            : 'bg-purple-700 text-purple-200 hover:bg-purple-700 hover-text-white' ?>
-                                        px-3 py-2 rounded-md text-sm font-medium"
-                                >
-                                    Register
-                                </a>
-                            </div>
-                        <?php endif ?>
-                    </div>
-                </div>
+                <a 
+                    href="/register"
+                    class="<?= urlIs('/register') ? 'active' : '' ?>"
+                >
+                    Register
+                </a>
             </div>
-        </nav>
+        <?php endif ?>
+    </div>
+</nav>
