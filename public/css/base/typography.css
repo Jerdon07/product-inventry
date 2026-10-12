@@ -1,3 +1,13 @@
-body { font-family: system-ui, sans-serif; line-height: 1.5; color: #111827; }
-h1, h2 { line-height: 1.2; }
-a { color: inherit; }
+body { 
+    font-family: system-ui, sans-serif; 
+    line-height: 1.5; 
+    color: #111827; 
+}
+
+h1, h2 { 
+    line-height: 1.2; 
+}
+
+a { 
+    color: inherit; 
+}
