@@ -7,7 +7,7 @@ use util\Response;
 $db = App::resolve(Database::class);
 
 $product = $db->query(
-    "SELECT * FROM products WHERE id = :id", 
+    "SELECT * FROM products WHERE id = :id",
     [":id" => $_GET['id']]
 )->findOrFail();
 

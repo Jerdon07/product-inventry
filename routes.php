@@ -17,12 +17,9 @@ $router->delete('/sessions', 'session/delete-controller.php')->only('auth');
 $router->get('/', 'index.php');
 
 $router->get('/products', 'products/index-controller.php')->only('auth');
-
 $router->get('/product', 'products/show-controller.php')->only('auth');
-
 $router->get('/product/edit', 'products/edit-controller.php')->only('auth');
 $router->put('/product/edit', 'products/update-controller.php')->only('auth');
-
 $router->delete('/product', 'products/destroy-controller.php')->only('auth');
 
 /* Product API */
