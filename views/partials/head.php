@@ -10,5 +10,4 @@
     <?php endif ?>
     <title>Document</title>
 </head>
-<body class="bg-gray-100">
-    <div class="min-h-full">
+<body>

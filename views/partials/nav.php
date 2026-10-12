@@ -28,10 +28,7 @@
             <form action="/sessions" method="POST" class="auth">
                 <input type="hidden" name="_method" value="DELETE">
 
-                <button
-                    type="submit"
-                    class="bg-purple-700 text-purple-200 hover:bg-purple-700 hover-text-white px-3 py-2 rounded-md text-sm font-medium cursor-pointer"
-                >
+                <button type="submit" >
                     Log Out
                 </button>
             </form>
