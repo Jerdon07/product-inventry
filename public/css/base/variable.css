@@ -1,0 +1,14 @@
+:root {
+    --color-background: oklch(96.8% 0.007 247.896);
+    --color-foreground: oklch(12.9% 0.042 264.695);
+    --color-card: oklch(100% 0.00011 271.152);
+    
+    --color-primary: oklch(58.5% 0.233 277.117);
+    --color-primary-foreground: oklch(100% 0.00011 271.152);
+    --color-primary-hover: oklch(45.7% 0.24 277.023);
+
+    --color-danger: oklch(57.7% 0.245 27.325);
+    --color-danger-hover: oklch(44.4% 0.177 26.899);
+
+    --space-4: 1rem;
+}
