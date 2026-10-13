@@ -1,0 +1,28 @@
+.form {
+    border-radius: 6px;
+    background-color: var(--color-card);
+    max-width: 600px;
+    padding-top: 50px;
+}
+
+label {
+    font-size: small;
+    font-weight: 600;
+}
+
+label span {
+    color: var(--color-danger);
+}
+
+input {
+    padding: 2px;
+    border: 1.5px solid black;
+    border-radius: 8px;
+    padding-inline: 6px;
+}
+
+.input-error {
+    font-size: smaller;
+    color: var(--color-danger);
+    font-weight: 400;
+}

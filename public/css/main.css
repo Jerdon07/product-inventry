@@ -10,3 +10,5 @@
 @import "components/table.css";
 @import "components/dialog.css";
 @import "components/form.css";
+
+@import "pages/login.css"

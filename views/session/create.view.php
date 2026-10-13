@@ -2,54 +2,52 @@
 <?php view('partials/nav.php') ?>
 
 <main>
-    <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <div class="w-170 px-6 py-4 bg-white rounded-md">
-            <form action="/sessions" method="POST" class="space-y-4">
+    <div class="form-wrapper">
 
-                <!-- Credentials -->
-                <div class="grid grid-cols-2 gap-4">  
-                    
-                        <!-- Email -->
-                    <div class="flex flex-col">
-                        <label for="price" class="text-sm font-semibold">
-                            Email <span class="text-red-500">*</span>
-                        </label>
-                        <input 
-                            type="email"
-                            name="email"
-                            id="email"
-                            class="border rounded-sm"
-                            value="<?= $data['email'] ?? '' ?>"
-                        >
-                        <?php if(isset($errors['email'])) : ?>
-                            <p class="text-xs text-red-500 font-semibold"><?= $errors['email'] ?></p>
-                        <?php endif ?>
-                    </div>
-
-                    <!-- Quantity -->
-                    <div class="flex flex-col">
-                        <label for="quantity" class="text-sm font-semibold">
-                            Password <span class="text-red-500">*</span>
-                        </label>
-                        <input 
-                            type="password"
-                            name="password" 
-                            id="password"
-                            class="border rounded-sm"
-                            value="<?= $_POST['password'] ?? '' ?>"
-                        >
-                        <?php if(isset($errors['password'])) : ?>
-                        <p class="text-xs text-red-500 font-semibold"><?= $errors['password'] ?></p>
-                        <?php endif ?>
-                    </div>
-                </div>
-                
-                <!-- Submit Button -->
-                 <div class="flex w-full h-fit items-end justify-end">
-                     <input type="submit" value="Login" class="bg-purple-500 py-2 px-5 rounded-full text-white hover:bg-purple-700">
-                 </div>
-            </form>
+        <!-- Form Header -->
+        <div class="form-header">
+            <h1>Log In</h1>
+            <p>Please fill out the form to continue</p>
         </div>
+
+        <!-- Form -->
+        <form action="/sessions" method="POST" class="login-form">
+
+            <!-- Email -->
+            <div class="input-group">
+                <label for="price">
+                    Email <span>*</span>
+                </label>
+                <input 
+                    type="email"
+                    name="email"
+                    id="email"
+                    value="<?= $data['email'] ?? '' ?>"
+                >
+                <?php if(isset($errors['email'])) : ?>
+                    <p class="input-error"><?= $errors['email'] ?></p>
+                <?php endif ?>
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+                <label for="password">
+                    Password <span>*</span>
+                </label>
+                <input 
+                    type="password"
+                    name="password" 
+                    id="password"
+                    value="<?= $_POST['password'] ?? '' ?>"
+                >
+                <?php if(isset($errors['password'])) : ?>
+                    <p class="input-error"><?= $errors['password'] ?></p>
+                <?php endif ?>
+            </div>
+        
+            <!-- Submit Button -->
+            <button type="submit">Login</button>
+        </form>
     </div>
 </main>
 <?php view('partials/footer.php') ?>
