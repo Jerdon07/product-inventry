@@ -63,26 +63,3 @@ function createAction(id) {
 
     return actionCell
 }
-
-/**
- * Display the error to the user
- */
-export function showErrors(errors = {}) {
-    for (const [field, message] of Object.entries(errors)) {
-        const errorElement = document.getElementById(`error-${field}`);
-        if (errorElement) {
-            errorElement.textContent = message;
-            errorElement.classList.remove('hidden');
-        }
-    }
-}
-
-/**
- * Remove all errors
- */
-export function clearErrors() {
-    document.querySelectorAll('[id^="error-"]').forEach((el) => {
-        el.textContent = '';
-        el.classList.add('hidden');
-    });
-}

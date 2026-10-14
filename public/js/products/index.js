@@ -1,5 +1,6 @@
+import { clearErrors, showErrors } from "../index.js"
 import { createProduct, deleteProduct, getProducts } from "./api.js"
-import { addProductToList, clearErrors, renderProducts, showErrors } from "./render.js"
+import { addProductToList, renderProducts } from "./render.js"
 
 /* Instantiate Elements */
 const productList = document.getElementById('productList')

@@ -1,17 +1,4 @@
-
-/**
- * Generic function for requesting to the server
- */
-async function request(url, options = {}) {
-    const response = await fetch (url, options)
-
-    const result = await response.json()
-
-    return {
-        ok: response.ok,
-        result,
-    }
-}
+import { request } from ".."
 
 /**
  * GET all products
