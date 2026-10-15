@@ -1,4 +1,4 @@
-import { clearErrors, showErrors } from "../app.js"
+import { clearErrors, getSessionUser, showErrors } from "../app.js"
 import { createProduct, deleteProduct, getProducts } from "./api.js"
 import { addProductToList, renderProducts } from "./render.js"
 
@@ -8,6 +8,12 @@ const dialog = document.getElementById('productDialog')
 const openBtn = document.getElementById('openDialogBtn')
 const closeBtn = document.getElementById('closeDialogBtn')
 const form = document.getElementById('productForm')
+
+// GET session user -------------------------------------
+
+const user = await getSessionUser()
+const header = document.getElementById('header-text')
+header.textContent = `${user.name}'s Products`
 
 // GET all products -------------------------------------
 async function loadProducts() {

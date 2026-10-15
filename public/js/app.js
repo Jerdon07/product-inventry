@@ -13,6 +13,26 @@ export async function request(uri, options = {}) {
 }
 
 /**
+ * Get session user
+ */
+export async function getSessionUser() {
+    try {
+        const { result, ok } = await request('/api/sessions', {
+            method: 'GET',
+        })
+
+        if (!ok) {
+            throw new Error('Failed to fetch the session user')
+        }
+
+        return result.user
+    } catch(error) {
+        console.error(error)
+    }
+
+}
+
+/**
  * Display the error
  */
 export function showErrors(errors = {}) {
