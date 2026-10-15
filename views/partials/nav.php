@@ -1,6 +1,7 @@
 <nav>
     <!-- Left (Logo Area) -->
-    <div>
+    <div class="left">
+        <img src="/favicon.svg" alt="logo">
         <h3>Product Inventry</h3>
     </div>
 

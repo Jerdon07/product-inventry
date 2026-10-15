@@ -13,6 +13,16 @@ nav h3 {
     font-size: 0.9375rem;
 }
 
+nav .left {
+    display: flex;
+    align-items: center;
+    
+}
+
+nav .left img {
+    width: 35px;
+}
+
 nav .right {
     display: flex;
     align-items: center;
