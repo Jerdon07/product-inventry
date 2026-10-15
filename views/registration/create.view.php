@@ -1,11 +1,11 @@
-<?php view('partials/head.php') ?>
+<?php view('partials/head.php', ['script' => 'js/registration/index.js']) ?>
 <?php view('partials/nav.php') ?>
 <?php require base_path('views/partials/banner.php') ?>
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <div class="w-170 px-6 py-4 bg-white rounded-md">
-            <form action="" method="POST" class="space-y-4">
+            <form action="/register" method="POST" id="registrationForm" class="space-y-4">
 
                 <!-- Name -->
                 <div class="flex flex-col">
@@ -21,9 +21,7 @@
                         value="<?= $data['name'] ?? '' ?>"
                     >
 
-                    <?php if(isset($errors['name'])) : ?>
-                        <p class="text-xs text-red-500 font-semibold"><?= $errors['name'] ?></p>
-                    <?php endif ?>
+                    <p id="error-name" class="input-error"></p>
                 </div>
 
                 <!-- Credentials -->
@@ -41,9 +39,7 @@
                             class="border rounded-sm"
                             value="<?= $data['email'] ?? '' ?>"
                         >
-                        <?php if(isset($errors['email'])) : ?>
-                            <p class="text-xs text-red-500 font-semibold"><?= $errors['email'] ?></p>
-                        <?php endif ?>
+                        <p id="error-email" class="input-error"></p>
                     </div>
 
                     <!-- Quantity -->
@@ -57,9 +53,7 @@
                             id="password"
                             class="border rounded-sm"
                         >
-                        <?php if(isset($errors['password'])) : ?>
-                        <p class="text-xs text-red-500 font-semibold"><?= $errors['password'] ?></p>
-                        <?php endif ?>
+                        <p id="error-password" class="input-error"></p>
                     </div>
                 </div>
                 
