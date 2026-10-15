@@ -1,4 +1,4 @@
-import { clearErrors, request, showErrors } from "../index.js"
+import { clearErrors, request, showErrors } from "../app.js"
 
 const form = document.getElementById('registrationForm')
 

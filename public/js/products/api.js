@@ -1,4 +1,4 @@
-import { request } from "../index.js"
+import { request } from "../app.js"
 
 /**
  * GET all products

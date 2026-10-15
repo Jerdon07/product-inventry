@@ -1,4 +1,4 @@
-import { clearErrors, showErrors } from "../index.js"
+import { clearErrors, showErrors } from "../app.js"
 import { createSession } from "./api.js"
 
 /* Instantiate the form */

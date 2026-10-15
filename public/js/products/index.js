@@ -1,4 +1,4 @@
-import { clearErrors, showErrors } from "../index.js"
+import { clearErrors, showErrors } from "../app.js"
 import { createProduct, deleteProduct, getProducts } from "./api.js"
 import { addProductToList, renderProducts } from "./render.js"
 
