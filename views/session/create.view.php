@@ -1,4 +1,4 @@
-<?php view('partials/head.php') ?>
+<?php view('partials/head.php', ['script' => '/js/session/create.js']) ?>
 <?php view('partials/nav.php') ?>
 
 <main>
@@ -11,11 +11,15 @@
         </div>
 
         <!-- Form -->
-        <form action="/sessions" method="POST" class="login-form">
-
+        <form 
+            action="/api/sessions/store"
+            method="POST" 
+            id="loginForm" 
+            class="login-form"
+        >
             <!-- Email -->
             <div class="input-group">
-                <label for="price">
+                <label for="email">
                     Email <span>*</span>
                 </label>
                 <input 
@@ -24,9 +28,7 @@
                     id="email"
                     value="<?= $data['email'] ?? '' ?>"
                 >
-                <?php if(isset($errors['email'])) : ?>
-                    <p class="input-error"><?= $errors['email'] ?></p>
-                <?php endif ?>
+                <p id="error-email" class="input-error"></p>
             </div>
 
             <!-- Password -->
@@ -40,13 +42,14 @@
                     id="password"
                     value="<?= $_POST['password'] ?? '' ?>"
                 >
+                <p id="error-password" class="input-error"></p>
                 <?php if(isset($errors['password'])) : ?>
                     <p class="input-error"><?= $errors['password'] ?></p>
                 <?php endif ?>
             </div>
         
             <!-- Submit Button -->
-            <button type="submit">Login</button>
+            <button type="submit" id="submit">Login</button>
         </form>
     </div>
 </main>
