@@ -12,6 +12,7 @@ $router->post('/register', 'api/registration/store-controller.php')->only('guest
 /* Login */
 $router->get('/login', 'session/create-controller.php');
 /* Session API */
+$router->get('/api/sessions', 'api/sessions/index-controller.php');
 $router->post('/api/sessions/store', 'api/sessions/store-controller.php');
 $router->delete('/sessions', 'session/delete-controller.php')->only('auth');
 
