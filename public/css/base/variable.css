@@ -1,16 +1,27 @@
 :root {
-    --color-background: oklch(96.8% 0.007 247.896);
-    --color-foreground: oklch(12.9% 0.042 264.695);
-    --color-card: oklch(100% 0.00011 271.152);
-    
-    --color-primary: oklch(60.6% 0.25 292.717);
-    --color-primary-foreground: oklch(100% 0.00011 271.152);
-    --color-primary-hover: oklch(49.1% 0.27 292.581);
-    --color-primary-hover-foreground: oklch(100% 0.00011 271.152);
+    --color-background: #fafafa;
+    --color-foreground: #111111;
+    --color-muted: #6b7280;
+    --color-card: #ffffff;
+    --color-border: #e5e5e5;
+    --color-border-strong: #d4d4d8;
+    --color-surface-hover: #f4f4f5;
 
-    --color-danger: oklch(57.7% 0.245 27.325);
-    --color-danger-hover: oklch(44.4% 0.177 26.899);
+    --color-primary: #8e51ff;
+    --color-primary-foreground: #ffffff;
+    --color-primary-hover: #7008e7;
+    --color-primary-hover-foreground: #ffffff;
 
+    --color-danger: #b91c1c;
+    --color-danger-hover: #7f1d1d;
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
     --space-4: 1rem;
-    --border-radius: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+
+    --border-radius: 6px;
+    --font-size-sm: 0.875rem;
 }

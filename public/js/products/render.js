@@ -20,9 +20,6 @@ export function addProductToList(product) {
 function buildRow(product) {
     const tableRow = document.createElement('tr')
 
-    const actionCell = document.createElement('td')
-    actionCell
-
     tableRow.append(
         createCell(product.name),
         createCell(product.price),
@@ -44,18 +41,18 @@ function createAction(id) {
     /* Show Action */
     const showLink = document.createElement('a')
     showLink.href = `/product?id=${id}`
-    showLink.textContent = "👀"
+    showLink.textContent = 'View'
 
     /* Delete Button */
     const deleteButton = document.createElement('button')
-    deleteButton.type = "button"
-    deleteButton.textContent = "🗑️"
+    deleteButton.type = 'button'
+    deleteButton.textContent = 'Delete'
     deleteButton.dataset.id = id
-    deleteButton.className = "cursor-pointer"
+    deleteButton.className = 'danger'
 
     /* Actions Wrapper/Group */
     const wrapper = document.createElement('div')
-    wrapper.className = "flex space-x-2"
+    wrapper.className = 'row-actions'
     wrapper.append(showLink, deleteButton)
 
     const actionCell = document.createElement('td')
