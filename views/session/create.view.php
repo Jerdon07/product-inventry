@@ -2,10 +2,10 @@
 <?php view('partials/nav.php') ?>
 
 <main>
-    <div class="form-wrapper">
+    <div class="auth-form-wrapper">
 
         <!-- Form Header -->
-        <div class="form-header">
+        <div class="auth-form-header">
             <h1>Log In</h1>
             <p>Please fill out the form to continue</p>
         </div>
@@ -15,7 +15,7 @@
             action="/api/sessions/store"
             method="POST" 
             id="loginForm" 
-            class="login-form"
+            class="auth-form"
         >
         
             <!-- Email -->

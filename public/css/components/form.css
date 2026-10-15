@@ -5,6 +5,67 @@
     padding-top: 50px;
 }
 
+.auth-form-wrapper {
+    max-width: 400px;
+    margin-top: 3rem;
+    margin-inline: auto;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.137);
+    padding-inline: 2rem;
+    padding-block: 2.5rem;
+}
+
+.auth-form-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-form-header h1 {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.auth-form-header p {
+    font-size: small;
+    font-weight: 600;
+}
+
+.auth-form {
+    padding-top: 1rem;
+    margin-inline: auto;
+    width: max-content;
+}
+
+.auth-form .input-group {
+    display: flex;
+    flex-direction: column;
+    padding-block: 6px;
+}
+
+.auth-form input {
+    width: 300px;
+}
+
+.auth-form button {
+    margin-top: 1rem;
+    width: 300px;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.137);
+
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+}
+
+.auth-form button:hover {
+    background-color: var(--color-primary-hover);
+    color: var(--color-primary-hover-foreground);
+}
+
 label {
     font-size: small;
     font-weight: 600;
