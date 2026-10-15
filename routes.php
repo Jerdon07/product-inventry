@@ -9,8 +9,9 @@ $router->get('/register', 'registration/create-controller.php')->only('guest');
 $router->post('/register', 'registration/store-controller.php')->only('guest');
 
 /* Login */
-$router->get('/login', 'session/create-controller.php')->only('guest');
-$router->post('/sessions', 'session/store-controller.php')->only('guest');
+$router->get('/login', 'session/create-controller.php');
+/* Session API */
+$router->post('/api/sessions/store', 'api/sessions/store-controller.php');
 $router->delete('/sessions', 'session/delete-controller.php')->only('auth');
 
 /* Product Views */
