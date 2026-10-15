@@ -4,14 +4,12 @@ use util\Router;
 
 $router = new Router;
 
-/* Registration */
+/* Pages */
 $router->get('/register', 'registration/create-controller.php')->only('guest');
-/* Registration API */
-$router->post('/register', 'api/registration/store-controller.php')->only('guest');
-
-/* Login */
 $router->get('/login', 'session/create-controller.php')->only('guest');
-/* Session API */
+
+/* API */
+$router->post('/register', 'api/registration/store-controller.php')->only('guest');
 $router->get('/api/sessions', 'api/sessions/index-controller.php');
 $router->post('/api/sessions/store', 'api/sessions/store-controller.php')->only('guest');
 $router->delete('/sessions', 'session/delete-controller.php')->only('auth')->only('auth');
