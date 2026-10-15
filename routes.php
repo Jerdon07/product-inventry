@@ -6,7 +6,8 @@ $router = new Router;
 
 /* Registration */
 $router->get('/register', 'registration/create-controller.php')->only('guest');
-$router->post('/register', 'registration/store-controller.php')->only('guest');
+/* Registration API */
+$router->post('/register', 'api/registration/store-controller.php')->only('guest');
 
 /* Login */
 $router->get('/login', 'session/create-controller.php');
