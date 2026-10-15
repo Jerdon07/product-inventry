@@ -1,10 +1,10 @@
 import { clearErrors, showErrors } from "../index.js"
 import { createSession } from "./api.js"
 
-// Instantiate the elements
+/* Instantiate the form */
 const form = document.getElementById('loginForm')
 
-// handle click events
+/* Listen for form submit */
 form.addEventListener('submit', async (event) => {
     event.preventDefault()
     clearErrors()
@@ -28,6 +28,3 @@ form.addEventListener('submit', async (event) => {
         console.error(error)
     }
 })
-
-// fetch api data
-// render error

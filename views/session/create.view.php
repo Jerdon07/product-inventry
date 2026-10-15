@@ -17,16 +17,17 @@
             id="loginForm" 
             class="login-form"
         >
+        
             <!-- Email -->
             <div class="input-group">
                 <label for="email">
                     Email <span>*</span>
                 </label>
+
                 <input 
                     type="email"
                     name="email"
                     id="email"
-                    value="<?= $data['email'] ?? '' ?>"
                 >
                 <p id="error-email" class="input-error"></p>
             </div>
@@ -36,20 +37,16 @@
                 <label for="password">
                     Password <span>*</span>
                 </label>
+
                 <input 
                     type="password"
                     name="password" 
                     id="password"
-                    value="<?= $_POST['password'] ?? '' ?>"
                 >
-                <p id="error-password" class="input-error"></p>
-                <?php if(isset($errors['password'])) : ?>
-                    <p class="input-error"><?= $errors['password'] ?></p>
-                <?php endif ?>
             </div>
         
             <!-- Submit Button -->
-            <button type="submit" id="submit">Login</button>
+            <button type="submit" id="submit">Continue</button>
         </form>
     </div>
 </main>
