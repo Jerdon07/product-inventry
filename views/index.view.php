@@ -12,8 +12,8 @@
             before customers ask for it.
         </p>
         <div class="hero-actions">
-            <a href="/register" class="btn btn-primary btn-lg">Get started</a>
-            <a href="/login" class="btn btn-secondary btn-lg">Log in</a>
+            <a href="/register" id="button-1" class="btn btn-primary btn-lg">Get started</a>
+            <a href="/login" id="button-2" class="btn btn-secondary btn-lg">Log in</a>
         </div>
     </div>
 </section>
